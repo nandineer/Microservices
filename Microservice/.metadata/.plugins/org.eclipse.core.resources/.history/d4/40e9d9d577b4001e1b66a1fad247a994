@@ -1,0 +1,12 @@
+package com.microservices.userdetails.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.microservices.userdetails.service.UserDetailsService;
+
+public class UserDetailsController {
+	
+	@Autowired
+	private UserDetailsService userDetailsService;
+
+}

@@ -1,0 +1,13 @@
+package com.microservices.userdetails.mapper;
+
+import org.mapstruct.factory.Mappers;
+
+
+public interface UserDetailsMapper {
+	
+	
+	UserDetailsMapper INSTANCE = Mappers.getMapper(UserDetailsMapper.class);
+	
+	
+
+}

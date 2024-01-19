@@ -1,0 +1,44 @@
+package com.microservices.foodcatalogue.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.microservices.foodcatalogue.Mapper.FoodItemMapper;
+import com.microservices.foodcatalogue.dto.FoodCataloguePage;
+import com.microservices.foodcatalogue.dto.FoodItemDTO;
+import com.microservices.foodcatalogue.entity.FoodItem;
+import com.microservices.foodcatalogue.repo.FoodCatalogueRepo;
+
+@Service
+public class FoodCatalogueService {
+	
+	@Autowired
+	private FoodCatalogueRepo foodCatalogueRepo;
+
+	public FoodItemDTO addFoodItem(FoodItemDTO foodItemDTO) {
+		
+		FoodItem foodItem=FoodItemMapper.INSTANCE.convertFoodItemDTOToFoodItem(foodItemDTO);
+		FoodItem savedFoodItem=foodCatalogueRepo.save(foodItem);
+		return FoodItemMapper.INSTANCE.convertFoodItemToFoodItemDTO(savedFoodItem);
+	}
+
+	public FoodCataloguePage fetchFoodCataloguePageDetails(Integer restaurtantId) {
+		// TODO Auto-generated method stub
+		
+		//fetchFoodItemsByRestaurtantId
+		
+		List<FoodItemDTO> foodItemDTOs=foodCatalogueRepo.fetchFoodItemsByRestaurtantId(restaurtantId);
+		
+		
+		//fetchRestaurtantDetailsByRestaurtantId
+		
+		
+		//createFoodCataloguePage
+		
+		
+		return null;
+	}
+
+}

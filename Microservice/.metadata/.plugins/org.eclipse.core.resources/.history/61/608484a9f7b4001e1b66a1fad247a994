@@ -1,0 +1,23 @@
+package com.microservices.foodcatalogue.service;
+
+import org.springframework.stereotype.Service;
+
+import com.microservices.foodcatalogue.Mapper.FoodItemMapper;
+import com.microservices.foodcatalogue.dto.FoodItemDTO;
+import com.microservices.foodcatalogue.entity.FoodItem;
+import com.microservices.foodcatalogue.repo.FoodCatalogueRepo;
+
+@Service
+public class FoodCatalogueService {
+	
+	
+	private FoodCatalogueRepo foodCatalogueRepo;
+
+	public FoodItemDTO addFoodItem(FoodItemDTO foodItemDTO) {
+		
+		FoodItem foodItem=FoodItemMapper.INSTANCE.convertFoodItemDTOToFoodItem(foodItemDTO);
+		FoodItem savedFoodItem=foodCatalogueRepo.save(foodItem);
+		return FoodItemMapper.INSTANCE.convertFoodItemToFoodItemDTO(savedFoodItem);
+	}
+
+}

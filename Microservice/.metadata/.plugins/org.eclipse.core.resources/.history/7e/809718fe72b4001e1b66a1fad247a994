@@ -1,0 +1,5 @@
+package com.microservices.userdetails.entity;
+
+public class UserDetails {
+
+}

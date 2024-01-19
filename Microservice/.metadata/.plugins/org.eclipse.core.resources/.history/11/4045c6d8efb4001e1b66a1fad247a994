@@ -1,0 +1,9 @@
+package com.microservices.foodcatalogue.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/foodCatalogue")
+public class FoodCatalogueController {
+
+}

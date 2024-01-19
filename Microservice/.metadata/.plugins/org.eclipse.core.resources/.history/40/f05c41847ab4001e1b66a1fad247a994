@@ -1,0 +1,37 @@
+package com.microservices.userdetails.controller;
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.microservices.userdetails.dto.UserDetailsDTO;
+import com.microservices.userdetails.service.UserDetailsService;
+
+@RestController
+@RequestMapping("/user")
+public class UserDetailsController {
+	
+	@Autowired
+	private UserDetailsService userDetailsService;
+	
+	@PostMapping("/addUserDetails")
+	public ResponseEntity<UserDetailsDTO> addUserDetails(@RequestBody UserDetailsDTO userDetailsDTO){
+		UserDetailsDTO savedUserDetailsDTO = userDetailsService.addUserDetails(userDetailsDTO);
+		return new ResponseEntity<>(savedUserDetailsDTO,HttpStatus.OK);
+	}
+	
+	
+	@GetMapping("/fetchUserDetails")
+	public ResponseEntity<List<UserDetailsDTO>> fetchUserDetails(){
+		List<UserDetailsDTO> userDetails = userDetailsService.fetchUserDetails();
+		return new ResponseEntity<>(userDetails,HttpStatus.OK);
+	}
+
+}

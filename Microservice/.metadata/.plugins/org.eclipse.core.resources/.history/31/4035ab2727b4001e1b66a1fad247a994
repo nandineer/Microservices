@@ -1,0 +1,5 @@
+package com.microservices.restaurtantlisting.controller;
+
+public class RestaurantController {
+
+}

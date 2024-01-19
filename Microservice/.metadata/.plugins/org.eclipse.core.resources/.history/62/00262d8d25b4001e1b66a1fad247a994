@@ -1,0 +1,6 @@
+package com.microservices.restaurtantlisting.entity;
+
+@Entity
+public class Restaurant {
+
+}

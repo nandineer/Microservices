@@ -1,0 +1,9 @@
+package com.microservices.userdetails.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.microservices.userdetails.entity.UserDetails;
+
+public interface UserDetailsRepo extends JpaRepository<UserDetails, Integer> {
+
+}

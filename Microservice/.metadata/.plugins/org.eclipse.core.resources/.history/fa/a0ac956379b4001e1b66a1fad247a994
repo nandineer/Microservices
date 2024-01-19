@@ -1,0 +1,23 @@
+package com.microservices.userdetails.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.microservices.userdetails.dto.UserDetailsDTO;
+import com.microservices.userdetails.entity.UserDetails;
+import com.microservices.userdetails.mapper.UserDetailsMapper;
+import com.microservices.userdetails.repo.UserDetailsRepo;
+
+public class UserDetailsService {
+	
+	@Autowired
+	private UserDetailsRepo userDetailsRepo;
+
+	public UserDetailsDTO addUserDetails(UserDetailsDTO userDetailsDTO) {
+		
+		UserDetails userDetails = UserDetailsMapper.INSTANCE.mapUserDetailsDTOToUserDetails(userDetailsDTO);
+		UserDetails savedUserDetails = userDetailsRepo.save(userDetails);
+		return UserDetailsMapper.INSTANCE.mapUserDetailsToUserDetailsDTO(savedUserDetails);
+		
+	}
+
+}

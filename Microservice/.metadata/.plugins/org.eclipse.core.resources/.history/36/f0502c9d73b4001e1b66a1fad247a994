@@ -1,0 +1,5 @@
+package com.microservices.userdetails.mapper;
+
+public interface UserDetailsMapper {
+
+}

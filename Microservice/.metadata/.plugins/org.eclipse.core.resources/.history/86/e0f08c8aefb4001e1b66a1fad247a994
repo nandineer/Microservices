@@ -1,0 +1,5 @@
+package com.microservices.foodcatalogue.Mapper;
+
+public interface FoodItemMapper {
+
+}

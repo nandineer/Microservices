@@ -1,0 +1,5 @@
+package com.microservices.restaurtantlisting.service;
+
+public class RestaurantService {
+
+}

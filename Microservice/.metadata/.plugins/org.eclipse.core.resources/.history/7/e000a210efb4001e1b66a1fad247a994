@@ -1,0 +1,5 @@
+package com.microservices.foodcatalogue.controller;
+
+public class FoodCatalogueController {
+
+}

@@ -1,0 +1,32 @@
+package com.microservices.foodcatalogue.entity;
+
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class FoodItem {
+	
+	
+	private int id;
+	
+	private String itemName;
+	
+	private String itemDescription;
+	
+	private boolean isBeg;
+	
+	private Number price;
+	
+	private Integer restaurtantId;
+	
+	
+	private Integer quantity;
+	
+	
+
+}

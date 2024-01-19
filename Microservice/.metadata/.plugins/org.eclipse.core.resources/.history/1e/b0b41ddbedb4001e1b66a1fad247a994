@@ -1,0 +1,21 @@
+package com.microservices.foodcatalogue.dto;
+
+public class FoodItemDTO {
+	
+	
+	private int id;
+	
+	private String itemName;
+	
+	private String itemDescription;
+	
+	private boolean isBeg;
+	
+	private Number price;
+	
+	private Integer restaurtantId;
+	
+	
+	private Integer quantity;
+
+}

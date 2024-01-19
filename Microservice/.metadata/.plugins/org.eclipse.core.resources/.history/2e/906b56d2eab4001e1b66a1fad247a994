@@ -1,0 +1,5 @@
+package com.microservices.foodcatalogue.entity;
+
+public class FoodItem {
+
+}

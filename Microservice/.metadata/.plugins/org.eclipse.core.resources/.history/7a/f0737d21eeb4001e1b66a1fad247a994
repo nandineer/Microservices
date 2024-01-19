@@ -1,0 +1,18 @@
+package com.microservices.foodcatalogue.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import java.util.List;
+
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class FoodItemDTO {
+	
+	
+	private List<FoodItem> foodItems;
+	private RestaurtantDTO restaurtantDTO;
+
+}

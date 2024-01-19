@@ -1,0 +1,60 @@
+package com.microservices.foodcatalogue.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.microservices.foodcatalogue.Mapper.FoodItemMapper;
+import com.microservices.foodcatalogue.dto.FoodCataloguePage;
+import com.microservices.foodcatalogue.dto.FoodItemDTO;
+import com.microservices.foodcatalogue.dto.RestaurtantDTO;
+import com.microservices.foodcatalogue.entity.FoodItem;
+import com.microservices.foodcatalogue.repo.FoodCatalogueRepo;
+
+@Service
+public class FoodCatalogueService {
+	
+	@Autowired
+	private FoodCatalogueRepo foodCatalogueRepo;
+	
+	
+    @Autowired
+    RestTemplate restTemplate;
+
+	public FoodItemDTO addFoodItem(FoodItemDTO foodItemDTO) {
+		
+		FoodItem foodItem=FoodItemMapper.INSTANCE.convertFoodItemDTOToFoodItem(foodItemDTO);
+		FoodItem savedFoodItem=foodCatalogueRepo.save(foodItem);
+		return FoodItemMapper.INSTANCE.convertFoodItemToFoodItemDTO(savedFoodItem);
+	}
+
+	public FoodCataloguePage fetchFoodCataloguePageDetails(Integer restaurtantId) {
+		// TODO Auto-generated method stub
+		
+		//fetchFoodItemsByRestaurtantId
+		List<FoodItemDTO> foodItemDTOs=foodCatalogueRepo.fetchFoodItemsByRestaurtantId(restaurtantId);
+		
+		
+		//fetchRestaurtantDetailsByRestaurtantId
+		RestaurtantDTO restaurtantDTO= fetchRestaurtantDetailsByRestaurtantId(restaurtantId);
+		
+		//createFoodCataloguePage
+		FoodCataloguePage foodCataloguePage= createFoodCataloguePage(foodItemDTOs,restaurtantDTO);
+		
+		return null;
+	}
+
+	private FoodCataloguePage createFoodCataloguePage(List<FoodItemDTO> foodItemDTOs, RestaurtantDTO restaurtantDTO) {
+		// TODO Auto-generated method stub
+		
+		FoodCataloguePage foodCataloguePage = new FoodCataloguePage();
+		return foodCataloguePage;
+	}
+
+	private RestaurtantDTO fetchRestaurtantDetailsByRestaurtantId(Integer restaurtantId) {
+		return restTemplate.getForObject("http://RESTAURANT-SERVICE/restaurtant/fetchRestaurtantById/"+restaurtantId,RestaurtantDTO.class);
+	}
+
+}

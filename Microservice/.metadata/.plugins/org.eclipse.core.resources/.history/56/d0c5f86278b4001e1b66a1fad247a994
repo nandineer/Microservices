@@ -1,0 +1,18 @@
+package com.microservices.userdetails.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.microservices.userdetails.service.UserDetailsService;
+
+@RestController
+@RequestMapping("/user")
+public class UserDetailsController {
+	
+	@Autowired
+	private UserDetailsService userDetailsService;
+	
+	
+
+}

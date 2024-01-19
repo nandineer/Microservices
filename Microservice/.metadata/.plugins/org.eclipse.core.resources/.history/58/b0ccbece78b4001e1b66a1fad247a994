@@ -1,0 +1,18 @@
+package com.microservices.userdetails.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.microservices.userdetails.dto.UserDetailsDTO;
+import com.microservices.userdetails.repo.UserDetailsRepo;
+
+public class UserDetailsService {
+	
+	@Autowired
+	private UserDetailsRepo userDetailsRepo;
+
+	public UserDetailsDTO addUserDetails(UserDetailsDTO userDetailsDTO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

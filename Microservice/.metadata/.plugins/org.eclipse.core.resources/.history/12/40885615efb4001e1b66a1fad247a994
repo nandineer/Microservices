@@ -1,0 +1,5 @@
+package com.microservices.foodcatalogue.service;
+
+public class FoodCatalogueService {
+
+}
